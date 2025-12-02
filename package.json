@@ -1,0 +1,18 @@
+{
+  "name": "switchatlas",
+  "version": "1.0.0",
+  "description": "--- title: Home mode: wide ---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mintlify": "^4.2.280"
+  },
+  "dependencies": {
+    "marked": "^17.0.1"
+  }
+}
