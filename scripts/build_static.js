@@ -85,9 +85,240 @@ function copyFile(src, dest) {
     }
 }
 
+const cssContent = `
+:root {
+    --bg-color: #0d1117;
+    --card-bg: #161b22;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --accent: #58a6ff;
+    --border: #30363d;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: calc(100vh - 70px);
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-color);
+    border-right: 1px solid var(--border);
+    padding: 1rem;
+    overflow-y: auto;
+    height: calc(100vh - 70px);
+    position: sticky;
+    top: 70px;
+}
+
+.sidebar h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.sidebar a {
+    display: block;
+    padding: 0.5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: var(--card-bg);
+    color: var(--accent);
+}
+
+.main-content {
+    flex: 1;
+    padding: 2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, border-color 0.2s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.card-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    background-color: #21262d;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.card-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.card-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.pagination a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Detail Page */
+.detail-header {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+}
+
+.detail-image {
+    width: 400px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.detail-specs {
+    flex: 1;
+}
+
+.spec-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.spec-table td {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.spec-label {
+    color: var(--text-secondary);
+    width: 150px;
+}
+
+.curve-container {
+    margin-top: 2rem;
+    background: white; 
+    padding: 1rem;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+.home-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.home-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.home-hero p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.section-title {
+    margin-bottom: 1.5rem;
+}
+
+.vendor-title {
+    margin-bottom: 1.5rem;
+}
+
+.vendor-count {
+    font-size: 0.6em;
+    color: var(--text-secondary);
+    font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    .container { flex-direction: column; }
+    .sidebar { width: 100%; height: auto; position: static; border-right: none; border-bottom: 1px solid var(--border); }
+    .detail-header { flex-direction: column; }
+    .detail-image { width: 100%; }
+}
+`;
+
 // --- MAIN BUILD ---
 
 console.log('Building Static Site...');
+
+// 0. Write CSS
+fs.writeFileSync(path.join(ASSETS_DIR, 'style.css'), cssContent);
 
 // 1. Build Vendor Pages (Pagination)
 const vendors = fs.readdirSync(DATA_DIR);
@@ -113,8 +344,6 @@ vendors.forEach(vendor => {
                 if (dir !== vendorPath) {
                     const raw = fs.readFileSync(fullPath, 'utf8');
                     const { data, body } = parseFrontmatter(raw);
-                    const relDir = path.relative(DATA_DIR, dir); // e.g. Cherry/MX/Red -> MX/Red ? No, rel to VENDORS_DIR
-                    // Actually relative to the switch dir to copy images
                     
                     // Copy Images
                     let webImgPath = '';
@@ -140,9 +369,6 @@ vendors.forEach(vendor => {
                         }
                     }
 
-                    // Generate Detail HTML for Switch ??
-                    // Actually, let's just create a modal or detail page? 
-                    // Let's make a detail page for each switch to be static friendly.
                     const safeName = (data.name || path.basename(dir)).replace(/[^a-z0-9]/gi, '_').toLowerCase();
                     const detailFilename = `${safeName}.html`;
                     
@@ -201,7 +427,6 @@ vendors.forEach(vendor => {
     const chunkCount = Math.ceil(switches.length / CHUNK_SIZE);
     
     if (chunkCount === 0) {
-        // Empty vendor page
         fs.writeFileSync(path.join(vendorDistDir, 'index.html'), renderTemplate(vendor, '<h1>No switches found.</h1>', vendor));
     }
 
@@ -210,7 +435,7 @@ vendors.forEach(vendor => {
         const pageNum = i + 1;
         const filename = i === 0 ? 'index.html' : `page_${pageNum}.html`;
         
-        let gridHtml = `<h1 style="margin-bottom: 1.5rem">${vendor} <span style="font-size: 0.6em; color: var(--text-secondary); font-weight: normal">(${switches.length} switches)</span></h1>`;
+        let gridHtml = `<h1 class="vendor-title">${vendor} <span class="vendor-count">(${switches.length} switches)</span></h1>`;
         gridHtml += `<div class="grid">`;
         
         chunk.forEach(sw => {
@@ -255,15 +480,15 @@ vendors.forEach(vendor => {
 
 // 2. Build Home Page
 const homeHtml = `
-    <div style="text-align: center; margin-bottom: 3rem;">
-        <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Welcome to SwitchAtlas</h1>
-        <p style="color: var(--text-secondary); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+    <div class="home-hero">
+        <h1>Welcome to SwitchAtlas</h1>
+        <p>
             The comprehensive database of mechanical keyboard switches.
             Explore ${allSwitches.length} popular options.
         </p>
     </div>
     
-    <h2 style="margin-bottom: 1.5rem">Featured Switches</h2>
+    <h2 class="section-title">Featured Switches</h2>
     <div class="grid">
         ${allSwitches.slice(0, 8).map(sw => `
             <a href="${sw.link}" class="card">

@@ -10,11 +10,12 @@ build:
 	node scripts/build_static.js
 
 # Serve the static site locally
-preview:
+preview: build
+	@lsof -ti :8000 | xargs kill -9 2>/dev/null || true
 	python3 -m http.server 8000 --directory dist
-
+	
 # simple test to check if config is valid
-test:
+test: build
 	@echo "Static build test passed"
 
 # Clean up generated files and dependencies
