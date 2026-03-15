@@ -67,11 +67,7 @@ function renderTemplate(title, content, activeVendor = '') {
     <header>
         <a href="/" class="brand">SwitchAtlas</a>
         <div style="display: flex; align-items: center; gap: 1rem;">
-            <select id="theme-switcher" aria-label="Theme Switcher">
-                <option value="theme-soft">Soft & Approachable</option>
-                <option value="theme-neumorphism">Neumorphism</option>
-                <option value="theme-glassmorphism">Glassmorphism</option>
-            </select>
+            <button id="theme-button" aria-label="Toggle Theme" style="padding: 0.5rem 1rem; border-radius: 20px; border: var(--card-border); background: var(--card-bg); color: var(--text-primary); cursor: pointer; font-family: inherit; font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; box-shadow: var(--shadow-sm);">Theme</button>
             <a href="https://github.com/cedric/switchatlas" class="github-link">GitHub</a>
         </div>
     </header>
@@ -87,11 +83,29 @@ function renderTemplate(title, content, activeVendor = '') {
         </main>
     </div>
     <script>
-        const themeSwitcher = document.getElementById('theme-switcher');
-        themeSwitcher.value = document.body.className;
-        themeSwitcher.addEventListener('change', (e) => {
-            document.body.className = e.target.value;
-            localStorage.setItem('switchatlas-theme', e.target.value);
+        const themeButton = document.getElementById('theme-button');
+        const themes = ['theme-soft', 'theme-neumorphism', 'theme-glassmorphism'];
+        const themeLabels = {
+            'theme-soft': 'Soft Theme',
+            'theme-neumorphism': 'Neumorphism',
+            'theme-glassmorphism': 'Glassmorphism'
+        };
+
+        // Update button text to match current theme
+        function updateButtonLabel() {
+            themeButton.textContent = themeLabels[document.body.className] || 'Theme';
+        }
+        updateButtonLabel();
+
+        themeButton.addEventListener('click', () => {
+            const currentTheme = document.body.className;
+            const currentIndex = themes.indexOf(currentTheme);
+            const nextIndex = (currentIndex + 1) % themes.length;
+            const nextTheme = themes[nextIndex];
+
+            document.body.className = nextTheme;
+            localStorage.setItem('switchatlas-theme', nextTheme);
+            updateButtonLabel();
         });
     </script>
 </body>
@@ -530,8 +544,14 @@ body.theme-glassmorphism select option {
 
 console.log('Building Static Site...');
 
-// 0. Write CSS
+// 0. Write CSS and Copy Default Assets
 fs.writeFileSync(path.join(ASSETS_DIR, 'style.css'), cssContent);
+const SRC_ASSETS_DIR = path.join(__dirname, '../assets');
+if (fs.existsSync(SRC_ASSETS_DIR)) {
+    fs.readdirSync(SRC_ASSETS_DIR).forEach(file => {
+        copyFile(path.join(SRC_ASSETS_DIR, file), path.join(ASSETS_DIR, file));
+    });
+}
 
 // 1. Build Vendor Pages (Pagination)
 const vendors = fs.readdirSync(DATA_DIR);
@@ -589,7 +609,7 @@ vendors.forEach(vendor => {
                         meta: data,
                         body: body,
                         name: data.name || path.basename(dir),
-                        image: webImgPath || 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg',
+                        image: webImgPath || '/assets/default-switch.png',
                         curve: webCurvePath,
                         link: `/vendors/${vendor}/${detailFilename}`,
                         filename: detailFilename,
