@@ -1,23 +1,30 @@
-.PHONY: dev-install build preview test clean
+.PHONY: dev-install build build-legacy preview dev test clean
 
 # Install dependencies
 dev-install:
 	npm install
 
-# Prepare the data and build static site
+# Build with Next.js (static export)
 build:
+	npx next build
+
+# Legacy build (original static site generator)
+build-legacy:
 	node scripts/reorganize_vendors.js
 	node scripts/build_static.js
 
+# Dev server
+dev:
+	npx next dev
+
 # Serve the static site locally
 preview: build
-	@lsof -ti :8000 | xargs kill -9 2>/dev/null || true
-	python3 -m http.server 8000 --directory dist
-	
+	npx next start
+
 # simple test to check if config is valid
 test: build
 	@echo "Static build test passed"
 
 # Clean up generated files and dependencies
 clean:
-	rm -rf node_modules temp_theremingoat dist
+	rm -rf node_modules temp_theremingoat dist out .next

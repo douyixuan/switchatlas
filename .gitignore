@@ -1,6 +1,9 @@
 node_modules/
 dist/
+out/
+.next/
 temp_theremingoat/
 .DS_Store
 *.log
 data.json
+public/images/vendors/
