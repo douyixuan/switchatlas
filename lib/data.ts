@@ -53,15 +53,32 @@ function parseSwitchDir(dirPath: string, vendor: string): Switch | null {
   const relativePath = path.relative(path.join(DATA_DIR, vendor), dirPath)
   const slug = toSlug(relativePath)
 
-  const switchImages = data.images || {}
-  let image = '/images/default-switch.svg'
-  if (switchImages.switch) {
-    image = `/images/vendors/${vendor}/${slug}/${switchImages.switch}`
-  }
+  const imageBase = `/images/vendors/${vendor}/${slug}`
 
+  const dirEntries = fs.readdirSync(dirPath)
+  const allImageFiles = dirEntries
+    .filter((f) => /\.(jpg|jpeg|png|webp)$/i.test(f))
+    .filter((f) => !/^force-curve\./i.test(f))
+
+  const primaryFile = allImageFiles.find((f) => /^switch-image\./i.test(f))
+  const otherFiles = allImageFiles
+    .filter((f) => !/^switch-image\./i.test(f))
+    .sort()
+
+  const orderedFiles = primaryFile
+    ? [primaryFile, ...otherFiles]
+    : otherFiles
+
+  const images = orderedFiles.length > 0
+    ? orderedFiles.map((f) => `${imageBase}/${f}`)
+    : ['/images/default-switch.svg']
+
+  const image = images[0]
+
+  const switchImages = data.images || {}
   let curve: string | undefined
   if (switchImages.curve) {
-    curve = `/images/vendors/${vendor}/${slug}/${switchImages.curve}`
+    curve = `${imageBase}/${switchImages.curve}`
   }
 
   const hasCsv = fs.existsSync(path.join(dirPath, 'force-curve.csv'))
@@ -85,6 +102,7 @@ function parseSwitchDir(dirPath: string, vendor: string): Switch | null {
     color: data.color,
     mount: data.mount,
     image,
+    images,
     curve,
     hasForceCurveData: hasCsv || !!switchImages.curve,
   }

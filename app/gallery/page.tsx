@@ -12,6 +12,7 @@ export default function GalleryPage() {
     force: sw.force,
     travel: sw.travel,
     image: sw.image,
+    images: sw.images,
   }))
 
   return <Gallery switches={switches} />

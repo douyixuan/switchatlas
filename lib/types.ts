@@ -15,6 +15,7 @@ export interface Switch {
   color?: string
   mount?: string
   image: string
+  images: string[]
   curve?: string
   hasForceCurveData: boolean
 }

@@ -2,7 +2,7 @@ import { getAllVendors, getSwitchesByVendor, getSwitchBySlug } from '@/lib/data'
 import { Badge } from '@/components/badge'
 import { SpecTable } from '@/components/spec-table'
 import { ForceCurveChart } from '@/components/force-curve-chart'
-import Image from 'next/image'
+import { ImageGallery } from '@/components/image-gallery'
 import Link from 'next/link'
 
 export async function generateStaticParams() {
@@ -53,15 +53,7 @@ export default async function SwitchDetailPage({
 
       <div className="mt-6 flex flex-col gap-10 lg:flex-row">
         <div className="shrink-0 lg:w-[400px]">
-          <div className="overflow-hidden rounded-lg">
-            <Image
-              src={sw.image}
-              alt={sw.name}
-              width={400}
-              height={400}
-              className="h-auto w-full rounded-lg object-cover"
-            />
-          </div>
+          <ImageGallery images={sw.images} name={sw.name} />
         </div>
 
         <div className="min-w-0 flex-1">

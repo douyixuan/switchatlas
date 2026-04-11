@@ -13,11 +13,13 @@ interface GallerySwitch {
   force: { actuation: number; bottom_out: number }
   travel: { actuation: number; total: number }
   image: string
+  images: string[]
 }
 
 export function Gallery({ switches }: { switches: GallerySwitch[] }) {
   const router = useRouter()
   const [current, setCurrent] = useState(0)
+  const [imageIdx, setImageIdx] = useState(0)
   const [transitioning, setTransitioning] = useState(false)
   const touchRef = useRef<{ startX: number; startY: number } | null>(null)
   const hasInitialized = useRef(false)
@@ -33,7 +35,7 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
     if (idx >= 0) setCurrent(idx)
   }, [switches])
 
-  const navigate = useCallback(
+  const navigateSwitch = useCallback(
     (dir: 1 | -1) => {
       if (transitioning) return
       setTransitioning(true)
@@ -44,21 +46,38 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
           if (next >= switches.length) return 0
           return next
         })
+        setImageIdx(0)
         setTransitioning(false)
       }, 180)
     },
     [transitioning, switches.length]
   )
 
+  const navigateImage = useCallback(
+    (dir: 1 | -1) => {
+      const sw = switches[current]
+      if (!sw || sw.images.length <= 1) return
+      setImageIdx((prev) => {
+        const next = prev + dir
+        if (next < 0) return sw.images.length - 1
+        if (next >= sw.images.length) return 0
+        return next
+      })
+    },
+    [current, switches]
+  )
+
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') navigate(-1)
-      else if (e.key === 'ArrowRight') navigate(1)
+      if (e.key === 'ArrowLeft') navigateSwitch(-1)
+      else if (e.key === 'ArrowRight') navigateSwitch(1)
+      else if (e.key === 'ArrowUp') { e.preventDefault(); navigateImage(-1) }
+      else if (e.key === 'ArrowDown') { e.preventDefault(); navigateImage(1) }
       else if (e.key === 'Escape') router.back()
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [navigate, router])
+  }, [navigateSwitch, navigateImage, router])
 
   const onTouchStart = (e: React.TouchEvent) => {
     const touch = e.touches[0]
@@ -73,7 +92,9 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
     touchRef.current = null
 
     if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
-      navigate(dx < 0 ? 1 : -1)
+      navigateSwitch(dx < 0 ? 1 : -1)
+    } else if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 50) {
+      navigateImage(dy < 0 ? 1 : -1)
     }
   }
 
@@ -82,11 +103,13 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
 
   const prevIdx = current === 0 ? switches.length - 1 : current - 1
   const nextIdx = current === switches.length - 1 ? 0 : current + 1
+  const displayImage = sw.images[imageIdx] || sw.image
+  const hasMultipleImages = sw.images.length > 1
 
   return (
     <div
       className="fixed inset-0 z-50 flex flex-col"
-      style={{ backgroundColor: '#0d0d0d', touchAction: 'pan-y' }}
+      style={{ backgroundColor: '#0d0d0d', touchAction: 'none' }}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
@@ -105,9 +128,9 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
 
       <div className="relative flex flex-1 items-center justify-center overflow-hidden">
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigateSwitch(-1)}
           className="absolute left-0 top-0 z-10 flex h-full w-16 items-center justify-center text-white/0 transition-colors hover:text-white/60 md:w-28"
-          aria-label="Previous"
+          aria-label="Previous switch"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M15 18l-6-6 6-6" />
@@ -121,7 +144,8 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
         >
           <div className="relative h-56 w-56 sm:h-72 sm:w-72 md:h-80 md:w-80">
             <Image
-              src={sw.image}
+              key={displayImage}
+              src={displayImage}
               alt={sw.name}
               fill
               className="object-contain drop-shadow-2xl"
@@ -130,8 +154,25 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
             />
           </div>
 
+          {hasMultipleImages && (
+            <div className="mt-4 flex items-center gap-1.5">
+              {sw.images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setImageIdx(i)}
+                  className={`h-1.5 rounded-full transition-all ${
+                    i === imageIdx
+                      ? 'w-4 bg-brand'
+                      : 'w-1.5 bg-white/25 hover:bg-white/40'
+                  }`}
+                  aria-label={`Image ${i + 1}`}
+                />
+              ))}
+            </div>
+          )}
+
           <h2
-            className="mt-10 text-center text-subheading font-semibold text-white sm:text-section"
+            className="mt-8 text-center text-subheading font-semibold text-white sm:text-section"
             style={{ letterSpacing: '-0.8px', lineHeight: '1.15' }}
           >
             {sw.name}
@@ -158,9 +199,9 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
         </div>
 
         <button
-          onClick={() => navigate(1)}
+          onClick={() => navigateSwitch(1)}
           className="absolute right-0 top-0 z-10 flex h-full w-16 items-center justify-center text-white/0 transition-colors hover:text-white/60 md:w-28"
-          aria-label="Next"
+          aria-label="Next switch"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 18l6-6-6-6" />
@@ -168,7 +209,6 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
         </button>
       </div>
 
-      {/* Preload adjacent images */}
       <div className="hidden">
         <Image src={switches[prevIdx].image} alt="" width={1} height={1} priority />
         <Image src={switches[nextIdx].image} alt="" width={1} height={1} priority />
