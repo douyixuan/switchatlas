@@ -29,6 +29,8 @@ This database collects specifications, force curves, and images for thousands of
 The data in SwitchAtlas is aggregated from multiple sources to provide the most comprehensive database possible:
 - **ThereminGoat's Force Curves**: A significant portion of the force curve data and basic specifications are imported from [ThereminGoat's Repository](https://github.com/ThereminGoat/force-curves). We attribute all force curve data to their original authors.
 - **Manual Curation**: High-quality specifications and images are manually curated by the community.
+- https://lumekeebs.com
+- https://www.switchesdb.com
 
 ## Project Structure
 The project uses a file-system based database approach for easy maintenance and contribution.
