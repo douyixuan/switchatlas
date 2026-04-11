@@ -16,7 +16,7 @@
   --color-info: #3772cf;
   --color-error: #d45656;
 
-  --font-family-sans: 'Inter', 'Inter Fallback', system-ui, -apple-system, sans-serif;
+  --font-family-sans: 'Inter', 'Inter Fallback', 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
   --font-family-mono: 'Geist Mono', 'Geist Mono Fallback', ui-monospace, SFMono-Regular, monospace;
 
   --font-size-display: 64px;

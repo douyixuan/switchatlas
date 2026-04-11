@@ -1,0 +1,64 @@
+{
+  "nav.gallery": "图库",
+  "nav.github": "GitHub",
+  "nav.toggleMenu": "切换菜单",
+
+  "hero.eyebrow": "机械键盘轴体数据库",
+  "hero.title1": "每一款轴体，",
+  "hero.title2": "尽收眼底",
+  "hero.description": "探索数百款机械键盘轴体的详细规格、压力曲线和评测——尽在一处。",
+  "hero.getStarted": "开始探索",
+  "hero.galleryMode": "图库模式",
+
+  "home.featured": "精选轴体",
+  "home.featuredDesc": "来自顶级制造商的精选。",
+  "home.browseByVendor": "按品牌浏览",
+  "home.vendorCount": "浏览来自 {count} 家制造商的轴体。",
+
+  "spec.type": "类型",
+  "spec.actuationForce": "触发力度",
+  "spec.bottomOutForce": "触底力度",
+  "spec.actuationTravel": "触发行程",
+  "spec.totalTravel": "总行程",
+  "spec.sound": "声音",
+  "spec.color": "颜色",
+  "spec.mount": "安装方式",
+
+  "type.Linear": "线性",
+  "type.Tactile": "段落",
+  "type.Clicky": "段落声响",
+  "type.Unknown": "未知",
+
+  "common.na": "N/A",
+
+  "sidebar.vendors": "品牌",
+  "sidebar.selectVendor": "选择品牌",
+
+  "vendor.backHome": "← 首页",
+  "vendor.switches": "款轴体",
+
+  "detail.notFound": "未找到轴体",
+  "detail.backTo": "← 返回 {vendor}",
+  "detail.back": "← {vendor}",
+  "detail.by": "品牌：{vendor}",
+  "detail.galleryMode": "图库模式",
+  "detail.forceCurve": "压力曲线",
+
+  "gallery.exit": "← 退出",
+  "gallery.prevSwitch": "上一个轴体",
+  "gallery.nextSwitch": "下一个轴体",
+  "gallery.imageN": "图片 {n}",
+  "gallery.viewDetails": "查看详情 →",
+
+  "card.stats": "{force}g 触发 · {travel}",
+
+  "chart.ariaLabel": "压力曲线图",
+  "chart.xAxis": "位移 (mm)",
+  "chart.yAxis": "力度 (gf)",
+
+  "imageGallery.viewImage": "查看图片 {n}",
+
+  "theme.toggle": "切换主题",
+  "theme.lightMode": "切换为浅色模式",
+  "theme.darkMode": "切换为深色模式"
+}

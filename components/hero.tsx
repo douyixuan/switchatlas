@@ -1,6 +1,11 @@
+'use client'
+
 import Link from 'next/link'
+import { useT } from '@/lib/i18n/context'
 
 export function Hero() {
+  const t = useT()
+
   return (
     <section className="relative overflow-hidden">
       <div
@@ -20,7 +25,7 @@ export function Hero() {
             className="mb-4 font-mono text-mono font-medium uppercase tracking-wider"
             style={{ color: 'var(--text-muted)' }}
           >
-            Mechanical Keyboard Switch Database
+            {t('hero.eyebrow')}
           </p>
           <h1
             className="text-section font-semibold md:text-display"
@@ -30,8 +35,8 @@ export function Hero() {
               lineHeight: '1.1',
             }}
           >
-            Every Switch,{' '}
-            <span className="text-brand">Catalogued</span>
+            {t('hero.title1')}{' '}
+            <span className="text-brand">{t('hero.title2')}</span>
           </h1>
         </div>
 
@@ -42,8 +47,7 @@ export function Hero() {
             lineHeight: '1.6',
           }}
         >
-          Explore detailed specifications, force curves, and reviews for
-          hundreds of mechanical keyboard switches — all in one place.
+          {t('hero.description')}
         </p>
 
         <div className="mt-10 flex animate-slide-up flex-wrap items-center justify-center gap-4">
@@ -52,7 +56,7 @@ export function Hero() {
             className="inline-flex items-center rounded-pill px-7 py-2.5 text-button font-medium text-white shadow-button transition-opacity hover:opacity-90"
             style={{ backgroundColor: 'var(--text-primary)' }}
           >
-            Get Started
+            {t('hero.getStarted')}
           </Link>
           <Link
             href="/gallery"
@@ -63,7 +67,7 @@ export function Hero() {
               backgroundColor: 'var(--bg-card)',
             }}
           >
-            Gallery Mode
+            {t('hero.galleryMode')}
           </Link>
         </div>
       </div>

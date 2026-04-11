@@ -3,9 +3,12 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { ThemeToggle } from './theme-toggle'
+import { LanguageSwitcher } from './language-switcher'
+import { useT } from '@/lib/i18n/context'
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const t = useT()
 
   return (
     <header
@@ -32,7 +35,7 @@ export function Navbar() {
               className="rounded-md px-3 py-1.5 text-link font-medium transition-colors hover:text-brand"
               style={{ color: 'var(--text-primary)' }}
             >
-              Gallery
+              {t('nav.gallery')}
             </Link>
             <a
               href="https://github.com"
@@ -41,17 +44,18 @@ export function Navbar() {
               className="rounded-md px-3 py-1.5 text-link font-medium transition-colors hover:text-brand"
               style={{ color: 'var(--text-primary)' }}
             >
-              GitHub
+              {t('nav.github')}
             </a>
           </div>
 
+          <LanguageSwitcher />
           <ThemeToggle />
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="ml-1 inline-flex h-8 w-8 items-center justify-center rounded-md transition-colors md:hidden"
             style={{ color: 'var(--text-primary)' }}
-            aria-label="Toggle menu"
+            aria-label={t('nav.toggleMenu')}
           >
             {menuOpen ? (
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
@@ -77,7 +81,7 @@ export function Navbar() {
             style={{ color: 'var(--text-primary)' }}
             onClick={() => setMenuOpen(false)}
           >
-            Gallery
+            {t('nav.gallery')}
           </Link>
           <a
             href="https://github.com"
@@ -87,7 +91,7 @@ export function Navbar() {
             style={{ color: 'var(--text-primary)' }}
             onClick={() => setMenuOpen(false)}
           >
-            GitHub
+            {t('nav.github')}
           </a>
         </div>
       )}

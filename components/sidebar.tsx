@@ -3,10 +3,12 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import { useT } from '@/lib/i18n/context'
 
 export function Sidebar({ vendors }: { vendors: string[] }) {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const t = useT()
 
   const currentVendor = vendors.find((v) => pathname?.startsWith(`/vendors/${v}`))
 
@@ -23,7 +25,7 @@ export function Sidebar({ vendors }: { vendors: string[] }) {
             color: 'var(--text-primary)',
           }}
         >
-          <span>{currentVendor || 'Select Vendor'}</span>
+          <span>{currentVendor || t('sidebar.selectVendor')}</span>
           <svg
             width="16" height="16" viewBox="0 0 16 16" fill="none"
             stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"
@@ -70,7 +72,7 @@ export function Sidebar({ vendors }: { vendors: string[] }) {
             className="mb-3 font-mono text-micro font-medium uppercase tracking-wider"
             style={{ color: 'var(--text-muted)' }}
           >
-            Vendors
+            {t('sidebar.vendors')}
           </p>
           {vendors.map((vendor) => {
             const isActive = pathname?.startsWith(`/vendors/${vendor}`)

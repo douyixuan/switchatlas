@@ -1,10 +1,12 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { useT } from '@/lib/i18n/context'
 
 export function ThemeToggle() {
   const [dark, setDark] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const t = useT()
 
   useEffect(() => {
     setMounted(true)
@@ -22,7 +24,7 @@ export function ThemeToggle() {
     return (
       <button
         className="inline-flex h-8 w-8 items-center justify-center rounded-md"
-        aria-label="Toggle theme"
+        aria-label={t('theme.toggle')}
       >
         <div className="h-4 w-4" />
       </button>
@@ -33,7 +35,7 @@ export function ThemeToggle() {
     <button
       onClick={toggle}
       className="inline-flex h-8 w-8 items-center justify-center rounded-md transition-colors hover:bg-gray-100"
-      aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+      aria-label={dark ? t('theme.lightMode') : t('theme.darkMode')}
       style={{ color: 'var(--text-primary)' }}
     >
       {dark ? (

@@ -1,9 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { Badge } from './badge'
+import { useT } from '@/lib/i18n/context'
 import type { Switch } from '@/lib/types'
 
 export function SwitchCard({ sw }: { sw: Switch }) {
+  const t = useT()
+
   return (
     <Link
       href={`/vendors/${sw.vendor}/${sw.slug}`}
@@ -45,7 +50,10 @@ export function SwitchCard({ sw }: { sw: Switch }) {
             className="mt-2.5 font-mono text-mono uppercase tracking-wider"
             style={{ color: 'var(--text-muted)' }}
           >
-            {sw.force.actuation}g actuation · {sw.travel.total > 0 ? `${sw.travel.total}mm` : 'N/A'}
+            {t('card.stats', {
+              force: sw.force.actuation,
+              travel: sw.travel.total > 0 ? `${sw.travel.total}mm` : t('common.na'),
+            })}
           </p>
         )}
       </div>

@@ -185,6 +185,18 @@ export function getSwitchBySlug(
   }
   const bodyHtml = marked.parse(content) as string
 
+  let bodyHtmlZh: string | undefined
+  const readmeZhPath = path.join(entry.dirPath, 'README.zh.md')
+  if (fs.existsSync(readmeZhPath)) {
+    const rawZh = fs.readFileSync(readmeZhPath, 'utf-8')
+    try {
+      const parsedZh = matter(rawZh)
+      bodyHtmlZh = marked.parse(parsedZh.content) as string
+    } catch {
+      // fall back to English
+    }
+  }
+
   const base = parseSwitchDir(entry.dirPath, vendor)
   if (!base) return null
 
@@ -197,6 +209,7 @@ export function getSwitchBySlug(
   return {
     ...base,
     bodyHtml,
+    bodyHtmlZh,
     forceCurveData,
   }
 }

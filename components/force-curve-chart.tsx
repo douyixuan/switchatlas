@@ -1,8 +1,11 @@
 'use client'
 
 import type { ForceCurvePoint } from '@/lib/types'
+import { useT } from '@/lib/i18n/context'
 
 export function ForceCurveChart({ data }: { data: ForceCurvePoint[] }) {
+  const t = useT()
+
   if (!data.length) return null
 
   const width = 600
@@ -33,7 +36,7 @@ export function ForceCurveChart({ data }: { data: ForceCurvePoint[] }) {
         border: '1px solid var(--border-subtle)',
       }}
     >
-      <svg viewBox={`0 0 ${width} ${height}`} className="w-full" aria-label="Force curve chart">
+      <svg viewBox={`0 0 ${width} ${height}`} className="w-full" aria-label={t('chart.ariaLabel')}>
         {yTicks.map((tick) => (
           <g key={`y-${tick}`}>
             <line
@@ -82,7 +85,7 @@ export function ForceCurveChart({ data }: { data: ForceCurvePoint[] }) {
           fontSize="11"
           fontFamily="var(--font-family-sans)"
         >
-          Displacement (mm)
+          {t('chart.xAxis')}
         </text>
         <text
           x={12}
@@ -93,7 +96,7 @@ export function ForceCurveChart({ data }: { data: ForceCurvePoint[] }) {
           fontFamily="var(--font-family-sans)"
           transform={`rotate(-90, 12, ${height / 2})`}
         >
-          Force (gf)
+          {t('chart.yAxis')}
         </text>
       </svg>
     </div>

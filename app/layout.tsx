@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Navbar } from '@/components/navbar'
+import { LocaleProvider } from '@/lib/i18n/context'
 import './globals.css'
 
 const inter = Inter({
@@ -26,13 +27,15 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(localStorage.getItem('switchatlas-theme')==='dark')document.documentElement.classList.add('dark')}catch(e){}`,
+            __html: `try{if(localStorage.getItem('switchatlas-theme')==='dark')document.documentElement.classList.add('dark');var _l=localStorage.getItem('switchatlas-locale');if(_l==='zh')document.documentElement.lang='zh-CN'}catch(e){}`,
           }}
         />
       </head>
       <body className="min-h-screen font-sans antialiased">
-        <Navbar />
-        {children}
+        <LocaleProvider>
+          <Navbar />
+          {children}
+        </LocaleProvider>
       </body>
     </html>
   )

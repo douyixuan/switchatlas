@@ -1,0 +1,64 @@
+{
+  "nav.gallery": "Gallery",
+  "nav.github": "GitHub",
+  "nav.toggleMenu": "Toggle menu",
+
+  "hero.eyebrow": "Mechanical Keyboard Switch Database",
+  "hero.title1": "Every Switch,",
+  "hero.title2": "Catalogued",
+  "hero.description": "Explore detailed specifications, force curves, and reviews for hundreds of mechanical keyboard switches — all in one place.",
+  "hero.getStarted": "Get Started",
+  "hero.galleryMode": "Gallery Mode",
+
+  "home.featured": "Featured Switches",
+  "home.featuredDesc": "A curated selection from top manufacturers.",
+  "home.browseByVendor": "Browse by Vendor",
+  "home.vendorCount": "Explore switches from {count} manufacturers.",
+
+  "spec.type": "Type",
+  "spec.actuationForce": "Actuation Force",
+  "spec.bottomOutForce": "Bottom-out Force",
+  "spec.actuationTravel": "Actuation Travel",
+  "spec.totalTravel": "Total Travel",
+  "spec.sound": "Sound",
+  "spec.color": "Color",
+  "spec.mount": "Mount",
+
+  "type.Linear": "Linear",
+  "type.Tactile": "Tactile",
+  "type.Clicky": "Clicky",
+  "type.Unknown": "Unknown",
+
+  "common.na": "N/A",
+
+  "sidebar.vendors": "Vendors",
+  "sidebar.selectVendor": "Select Vendor",
+
+  "vendor.backHome": "← Home",
+  "vendor.switches": "switches",
+
+  "detail.notFound": "Switch Not Found",
+  "detail.backTo": "← Back to {vendor}",
+  "detail.back": "← {vendor}",
+  "detail.by": "by {vendor}",
+  "detail.galleryMode": "Gallery Mode",
+  "detail.forceCurve": "Force Curve",
+
+  "gallery.exit": "← Exit",
+  "gallery.prevSwitch": "Previous switch",
+  "gallery.nextSwitch": "Next switch",
+  "gallery.imageN": "Image {n}",
+  "gallery.viewDetails": "View Details →",
+
+  "card.stats": "{force}g actuation · {travel}",
+
+  "chart.ariaLabel": "Force curve chart",
+  "chart.xAxis": "Displacement (mm)",
+  "chart.yAxis": "Force (gf)",
+
+  "imageGallery.viewImage": "View image {n}",
+
+  "theme.toggle": "Toggle theme",
+  "theme.lightMode": "Switch to light mode",
+  "theme.darkMode": "Switch to dark mode"
+}

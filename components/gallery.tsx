@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useT } from '@/lib/i18n/context'
 
 interface GallerySwitch {
   slug: string
@@ -18,6 +19,7 @@ interface GallerySwitch {
 
 export function Gallery({ switches }: { switches: GallerySwitch[] }) {
   const router = useRouter()
+  const t = useT()
   const [current, setCurrent] = useState(0)
   const [imageIdx, setImageIdx] = useState(0)
   const [transitioning, setTransitioning] = useState(false)
@@ -119,7 +121,7 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
           className="rounded-pill border px-4 py-1.5 text-caption font-medium text-white/70 transition-colors hover:text-white"
           style={{ borderColor: 'rgba(255,255,255,0.12)' }}
         >
-          ← Exit
+          {t('gallery.exit')}
         </button>
         <span className="font-mono text-mono uppercase tracking-wider text-white/40">
           {current + 1} / {switches.length}
@@ -130,7 +132,7 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
         <button
           onClick={() => navigateSwitch(-1)}
           className="absolute left-0 top-0 z-10 flex h-full w-16 items-center justify-center text-white/0 transition-colors hover:text-white/60 md:w-28"
-          aria-label="Previous switch"
+          aria-label={t('gallery.prevSwitch')}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M15 18l-6-6 6-6" />
@@ -165,7 +167,7 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
                       ? 'w-4 bg-brand'
                       : 'w-1.5 bg-white/25 hover:bg-white/40'
                   }`}
-                  aria-label={`Image ${i + 1}`}
+                  aria-label={t('gallery.imageN', { n: i + 1 })}
                 />
               ))}
             </div>
@@ -181,11 +183,14 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
 
           <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
             <span className="rounded-pill bg-brand-light px-3 py-1 font-mono text-mono font-semibold uppercase tracking-wider text-brand-deep">
-              {sw.type}
+              {t(`type.${sw.type}`)}
             </span>
             {sw.force.actuation > 0 && (
               <span className="font-mono text-mono uppercase tracking-wider text-white/30">
-                {sw.force.actuation}g · {sw.travel.total > 0 ? `${sw.travel.total}mm` : 'N/A'}
+                {t('card.stats', {
+                  force: sw.force.actuation,
+                  travel: sw.travel.total > 0 ? `${sw.travel.total}mm` : t('common.na'),
+                })}
               </span>
             )}
           </div>
@@ -194,14 +199,14 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
             href={`/vendors/${sw.vendor}/${sw.slug}`}
             className="mt-6 rounded-pill border border-white/10 px-5 py-1.5 text-caption font-medium text-brand transition-all hover:border-brand/30 hover:bg-brand/5"
           >
-            View Details →
+            {t('gallery.viewDetails')}
           </Link>
         </div>
 
         <button
           onClick={() => navigateSwitch(1)}
           className="absolute right-0 top-0 z-10 flex h-full w-16 items-center justify-center text-white/0 transition-colors hover:text-white/60 md:w-28"
-          aria-label="Next switch"
+          aria-label={t('gallery.nextSwitch')}
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M9 18l6-6-6-6" />

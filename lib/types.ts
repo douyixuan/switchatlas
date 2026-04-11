@@ -22,6 +22,7 @@ export interface Switch {
 
 export interface SwitchDetail extends Switch {
   bodyHtml: string
+  bodyHtmlZh?: string
   forceCurveData?: ForceCurvePoint[]
 }
 

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { useT } from '@/lib/i18n/context'
 
 export function ImageGallery({
   images,
@@ -11,6 +12,7 @@ export function ImageGallery({
   name: string
 }) {
   const [selected, setSelected] = useState(0)
+  const t = useT()
 
   if (images.length <= 1) {
     return (
@@ -59,7 +61,7 @@ export function ImageGallery({
             style={{
               border: i === selected ? 'none' : '1px solid var(--border-subtle)',
             }}
-            aria-label={`View image ${i + 1}`}
+            aria-label={t('imageGallery.viewImage', { n: i + 1 })}
           >
             <Image
               src={src}
