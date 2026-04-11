@@ -12,7 +12,7 @@ travel:
 sound: Silent
 color: Green
 mount: 5-Pin
-source_csv: force-curve.csv
+source_csv: force-curve-simu.csv
 images:
   switch: switch-image.png
 ---
