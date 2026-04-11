@@ -53,19 +53,13 @@ export default async function SwitchDetailPage({
 
       <div className="mt-6 flex flex-col gap-10 lg:flex-row">
         <div className="shrink-0 lg:w-[400px]">
-          <div
-            className="overflow-hidden rounded-lg"
-            style={{
-              border: '1px solid var(--border-subtle)',
-              backgroundColor: 'var(--bg-card)',
-            }}
-          >
+          <div className="overflow-hidden rounded-lg">
             <Image
               src={sw.image}
               alt={sw.name}
               width={400}
               height={400}
-              className="h-auto w-full object-contain p-8"
+              className="h-auto w-full rounded-lg object-cover"
             />
           </div>
         </div>
