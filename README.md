@@ -31,6 +31,7 @@ The data in SwitchAtlas is aggregated from multiple sources to provide the most 
 - **Manual Curation**: High-quality specifications and images are manually curated by the community.
 - https://lumekeebs.com
 - https://www.switchesdb.com
+- https://milktooth.com
 
 ## Project Structure
 The project uses a file-system based database approach for easy maintenance and contribution.
