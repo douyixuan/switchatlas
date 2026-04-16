@@ -5,6 +5,7 @@ import { marked } from 'marked'
 import type { Switch, SwitchDetail, ForceCurvePoint } from './types'
 
 const DATA_DIR = path.join(process.cwd(), 'data', 'vendors')
+const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export function toSlug(relativePath: string): string {
   return relativePath
@@ -53,7 +54,7 @@ function parseSwitchDir(dirPath: string, vendor: string): Switch | null {
   const relativePath = path.relative(path.join(DATA_DIR, vendor), dirPath)
   const slug = toSlug(relativePath)
 
-  const imageBase = `/images/vendors/${vendor}/${slug}`
+  const imageBase = `${BASE_PATH}/images/vendors/${vendor}/${slug}`
 
   const dirEntries = fs.readdirSync(dirPath)
   const allImageFiles = dirEntries
@@ -71,7 +72,7 @@ function parseSwitchDir(dirPath: string, vendor: string): Switch | null {
 
   const images = orderedFiles.length > 0
     ? orderedFiles.map((f) => `${imageBase}/${f}`)
-    : ['/images/default-switch.svg']
+    : [`${BASE_PATH}/images/default-switch.svg`]
 
   const image = images[0]
 
