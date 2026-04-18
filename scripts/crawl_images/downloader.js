@@ -219,7 +219,10 @@ async function downloadMatched(matches, options = {}) {
       continue
     }
     try {
-      if (plan.removeOld) fs.unlinkSync(plan.removeOld)
+      if (plan.removeOld) {
+        try { fs.unlinkSync(plan.removeOld) } catch {}
+        try { fs.unlinkSync(plan.removeOld + '.source') } catch {}
+      }
       await downloadOne(plan.targetPath, plan.url, {
         rateLimiter: limiter,
         fetcher: options.fetcher,
