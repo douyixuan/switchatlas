@@ -7,3 +7,4 @@ temp_theremingoat/
 *.log
 data.json
 public/images/vendors/
+scripts/crawl_images/reports/
