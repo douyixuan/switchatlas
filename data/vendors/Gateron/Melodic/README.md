@@ -10,7 +10,15 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
+sources:
+  images:
+    - file: switch-image.jpg
+      site: milktooth
+      url: >-
+        https://res.cloudinary.com/milktooth/image/upload/v1708893914/switch-photos/Melodic/Melodic_1_bintgv.jpg
+      sourceUrl: 'https://milktooth.com/products/melodic'
+      fetched: '2026-04-18'
 ---
 
 # Melodic

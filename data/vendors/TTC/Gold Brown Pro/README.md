@@ -10,7 +10,15 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
+sources:
+  images:
+    - file: switch-image.jpg
+      site: milktooth
+      url: >-
+        https://res.cloudinary.com/milktooth/image/upload/v1708481319/switch-photos/Gold%20Brown%20Pro/Gold_Brown_Pro_1_hqp5un.jpg
+      sourceUrl: 'https://milktooth.com/products/gold-brown-pro'
+      fetched: '2026-04-18'
 ---
 
 # Gold Brown Pro

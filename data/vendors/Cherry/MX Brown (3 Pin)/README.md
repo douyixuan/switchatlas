@@ -10,7 +10,15 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
+sources:
+  images:
+    - file: switch-image.jpg
+      site: milktooth
+      url: >-
+        https://res.cloudinary.com/milktooth/image/upload/v1746498146/switch-photos/MX%20Brown/MX_Brown_1_rmbrm1.jpg
+      sourceUrl: 'https://milktooth.com/products/mx-brown'
+      fetched: '2026-04-18'
 ---
 
 # MX Brown (3 Pin)

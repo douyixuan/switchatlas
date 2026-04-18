@@ -10,7 +10,15 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
+sources:
+  images:
+    - file: switch-image.jpg
+      site: milktooth
+      url: >-
+        https://res.cloudinary.com/milktooth/image/upload/v1725848665/switch-photos/Dracula/Dracula_1_g3giul.jpg
+      sourceUrl: 'https://milktooth.com/products/dracula'
+      fetched: '2026-04-18'
 ---
 
 # Dracula

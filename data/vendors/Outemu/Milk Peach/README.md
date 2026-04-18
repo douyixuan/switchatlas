@@ -10,7 +10,15 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
+sources:
+  images:
+    - file: switch-image.jpg
+      site: milktooth
+      url: >-
+        https://res.cloudinary.com/milktooth/image/upload/v1709333736/switch-photos/Outemu%20Milk%20Peach/Milk_Peach_1_u4ccqu.jpg
+      sourceUrl: 'https://milktooth.com/products/outemu-milk-peach'
+      fetched: '2026-04-18'
 ---
 
 # Milk Peach

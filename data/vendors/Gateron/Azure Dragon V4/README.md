@@ -10,7 +10,15 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
+sources:
+  images:
+    - file: switch-image.jpg
+      site: milktooth
+      url: >-
+        https://res.cloudinary.com/milktooth/image/upload/v1753136687/switch-photos/Azure%20Dragon%20V4/Azure_Dragon_V4_1_ymhad1.jpg
+      sourceUrl: 'https://milktooth.com/products/azure-dragon-v4'
+      fetched: '2026-04-18'
 ---
 
 # Azure Dragon V4

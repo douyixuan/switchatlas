@@ -10,7 +10,15 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
+sources:
+  images:
+    - file: switch-image.jpg
+      site: milktooth
+      url: >-
+        https://res.cloudinary.com/milktooth/image/upload/v1709261926/switch-photos/Tom/Tom_1_wu3hzr.jpg
+      sourceUrl: 'https://milktooth.com/products/outemu-tom'
+      fetched: '2026-04-18'
 ---
 
 # Tom

@@ -10,7 +10,15 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
+sources:
+  images:
+    - file: switch-image.jpg
+      site: milktooth
+      url: >-
+        https://res.cloudinary.com/milktooth/image/upload/v1745373211/switch-photos/Magnetic%20Green%20Dragon/Magnetic_Green_Dragon_1_c3lbwk.jpg
+      sourceUrl: 'https://milktooth.com/products/magnetic-green-dragon'
+      fetched: '2026-04-18'
 ---
 
 # Magnetic Green Dragon HE
