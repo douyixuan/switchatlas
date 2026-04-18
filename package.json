@@ -7,7 +7,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test scripts/crawl_images/__tests__/*.test.js",
+    "crawl:images": "node scripts/crawl_images/run.js",
+    "crawl:images:dry": "node scripts/crawl_images/run.js --dry-run"
   },
   "keywords": [],
   "author": "",
