@@ -1,4 +1,4 @@
-import { getAllVendors } from '@/lib/data'
+import { getVendorsWithImages } from '@/lib/data'
 import { Sidebar } from '@/components/sidebar'
 
 export default function BrowseLayout({
@@ -6,7 +6,7 @@ export default function BrowseLayout({
 }: {
   children: React.ReactNode
 }) {
-  const vendors = getAllVendors()
+  const vendors = getVendorsWithImages()
 
   return (
     <div className="mx-auto max-w-7xl px-6 py-6 md:py-8">

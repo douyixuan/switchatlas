@@ -43,11 +43,17 @@ export function VendorContent({
           </span>
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {switches.map((sw) => (
-          <SwitchCard key={sw.slug} sw={sw} />
-        ))}
-      </div>
+      {switches.length === 0 ? (
+        <p className="py-12 text-center text-body" style={{ color: 'var(--text-muted)' }}>
+          {t('vendor.noSwitchesWithImages')}
+        </p>
+      ) : (
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {switches.map((sw) => (
+            <SwitchCard key={sw.slug} sw={sw} />
+          ))}
+        </div>
+      )}
     </div>
   )
 }

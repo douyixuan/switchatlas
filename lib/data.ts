@@ -109,6 +109,12 @@ function parseSwitchDir(dirPath: string, vendor: string): Switch | null {
   }
 }
 
+const DEFAULT_IMAGE_SUFFIX = '/images/default-switch.svg'
+
+export function hasRealImage(sw: { image: string }): boolean {
+  return !sw.image.endsWith(DEFAULT_IMAGE_SUFFIX)
+}
+
 export function getAllVendors(): string[] {
   return fs
     .readdirSync(DATA_DIR, { withFileTypes: true })
@@ -119,7 +125,8 @@ export function getAllVendors(): string[] {
 
 export function getSwitchesByVendor(
   vendor: string,
-  limit?: number
+  limit?: number,
+  options?: { includeImageless?: boolean }
 ): Switch[] {
   const vendorDir = path.join(DATA_DIR, vendor)
   if (!fs.existsSync(vendorDir)) return []
@@ -136,15 +143,25 @@ export function getSwitchesByVendor(
     const aScore =
       (a.type !== 'Unknown' ? 2 : 0) +
       (a.force.actuation > 0 ? 1 : 0) +
-      (a.image !== '/images/default-switch.svg' ? 3 : 0)
+      (hasRealImage(a) ? 3 : 0)
     const bScore =
       (b.type !== 'Unknown' ? 2 : 0) +
       (b.force.actuation > 0 ? 1 : 0) +
-      (b.image !== '/images/default-switch.svg' ? 3 : 0)
+      (hasRealImage(b) ? 3 : 0)
     return bScore - aScore
   })
 
-  return limit ? switches.slice(0, limit) : switches
+  const filtered = options?.includeImageless
+    ? switches
+    : switches.filter(hasRealImage)
+
+  return limit ? filtered.slice(0, limit) : filtered
+}
+
+export function getVendorsWithImages(): string[] {
+  return getAllVendors().filter(
+    (v) => getSwitchesByVendor(v).length > 0
+  )
 }
 
 const slugToPathMap = new Map<string, { vendor: string; dirPath: string }>()

@@ -36,6 +36,7 @@
 
   "vendor.backHome": "← 首页",
   "vendor.switches": "款轴体",
+  "vendor.noSwitchesWithImages": "该厂商暂无带图片的轴体。",
 
   "detail.notFound": "未找到轴体",
   "detail.backTo": "← 返回 {vendor}",

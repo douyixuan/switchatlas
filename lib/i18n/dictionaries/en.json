@@ -36,6 +36,7 @@
 
   "vendor.backHome": "← Home",
   "vendor.switches": "switches",
+  "vendor.noSwitchesWithImages": "No switches with images yet for this vendor.",
 
   "detail.notFound": "Switch Not Found",
   "detail.backTo": "← Back to {vendor}",

@@ -6,7 +6,7 @@ export async function generateStaticParams() {
   const params: { vendor: string; slug: string }[] = []
 
   for (const vendor of vendors) {
-    const switches = getSwitchesByVendor(vendor)
+    const switches = getSwitchesByVendor(vendor, undefined, { includeImageless: true })
     for (const sw of switches) {
       params.push({ vendor, slug: sw.slug })
     }
