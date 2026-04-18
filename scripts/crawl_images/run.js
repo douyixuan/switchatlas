@@ -15,6 +15,9 @@ const fs = require('node:fs')
 
 const { fetchCatalog: fetchLumekeebs } = require('./sources/lumekeebs')
 const { fetchCatalog: fetchMilktooth } = require('./sources/milktooth')
+const { fetchCatalog: fetchDivinikey } = require('./sources/divinikey')
+const { fetchCatalog: fetchKbdfans } = require('./sources/kbdfans')
+const { fetchCatalog: fetchNovelkeys } = require('./sources/novelkeys')
 const {
   matchProducts,
   writeMatchLogs,
@@ -27,6 +30,9 @@ const path2 = require('node:path')
 
 const SOURCES = {
   lumekeebs: { fetchCatalog: fetchLumekeebs, priority: 10 },
+  kbdfans: { fetchCatalog: fetchKbdfans, priority: 11 },
+  divinikey: { fetchCatalog: fetchDivinikey, priority: 12 },
+  novelkeys: { fetchCatalog: fetchNovelkeys, priority: 13 },
   milktooth: { fetchCatalog: fetchMilktooth, priority: 20 },
 }
 
