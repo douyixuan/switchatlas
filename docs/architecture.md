@@ -82,3 +82,49 @@ overwritten. Read top-to-bottom for chronological evolution.
   matches an existing `data/vendors` directory. So it can fill
   photo gaps but never add a new switch — that's an explicit
   filesystem-first choice.
+
+---
+
+## Hide Imageless Switches (2026-04-19, feature 004)
+
+### Patterns introduced
+
+- **Data-layer default filter with opt-out**: `getSwitchesByVendor()`
+  defaults to returning only switches with real images. Callers that
+  need the full dataset (e.g. `generateStaticParams`) pass
+  `{ includeImageless: true }`. This "safe default" pattern means new
+  consumers automatically get correct behavior without remembering to
+  filter. See
+  [ADR 0005](decisions/0005-default-filter-imageless-switches.md).
+- **`hasRealImage(sw)` predicate**: uses `.endsWith('/images/default-switch.svg')`
+  rather than equality, covering both empty and non-empty `BASE_PATH`
+  deployments. Exported for reuse.
+
+### Data model changes
+
+- None. Purely a query-layer change — `Switch` type and `parseSwitchDir`
+  output are unchanged.
+
+### Conventions established
+
+- **New switch list consumers should call `getSwitchesByVendor()` without
+  `includeImageless`** — they get filtered results by default. Only
+  override when you explicitly need all switches (e.g. static
+  generation, search indexing).
+- **Use `getVendorsWithImages()` for navigation/display** — this filters
+  out vendors with zero visible switches. `getAllVendors()` is for
+  exhaustive enumeration only (e.g. `generateStaticParams`).
+- **Empty-state guard in list components**: `VendorContent` renders a
+  localized message when `switches.length === 0`. Future list
+  components should follow this pattern.
+
+### Known limitations
+
+- **No coverage signal UI**: the listing doesn't tell users "64 of 499
+  switches shown" — the ratio isn't surfaced anywhere. Deferred as
+  independent Small Batch (R4 from frame).
+- **No "show all" toggle**: users cannot manually reveal imageless
+  switches in list views. Direct URLs still work.
+- **Navigation hides 3 vendors entirely** (JWK, NovelKeys, Zeal):
+  these vendors have zero switches with images. They remain accessible
+  via direct URL but are invisible in sidebar and homepage.
