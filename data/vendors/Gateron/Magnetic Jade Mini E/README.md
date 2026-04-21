@@ -2,7 +2,7 @@
 id: gateron-magnetic-jade-mini-e
 name: Magnetic Jade Mini E
 vendor: Gateron
-type: Unknown
+type: Clicky
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Magnetic Jade Mini E

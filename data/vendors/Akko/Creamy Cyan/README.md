@@ -2,7 +2,7 @@
 id: akko-creamy-cyan
 name: Creamy Cyan
 vendor: Akko
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

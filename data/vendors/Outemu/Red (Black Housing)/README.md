@@ -2,7 +2,7 @@
 id: outemu-red-black-housing-
 name: Red (Black Housing)
 vendor: Outemu
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

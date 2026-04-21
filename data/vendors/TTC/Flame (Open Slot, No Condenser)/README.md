@@ -1,8 +1,8 @@
 ---
 id: ttc-flame-open-slot-no-condenser-
-name: Flame (Open Slot, No Condenser)
+name: 'Flame (Open Slot, No Condenser)'
 vendor: TTC
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Flame (Open Slot, No Condenser)

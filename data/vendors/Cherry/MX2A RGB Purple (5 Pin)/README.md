@@ -2,7 +2,7 @@
 id: cherry-mx2a-rgb-purple-5-pin-
 name: MX2A RGB Purple (5 Pin)
 vendor: Cherry
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

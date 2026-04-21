@@ -2,7 +2,7 @@
 id: gateron-luciola
 name: Luciola
 vendor: Gateron
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

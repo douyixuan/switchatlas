@@ -2,7 +2,7 @@
 id: akko-starlit
 name: Starlit
 vendor: Akko
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

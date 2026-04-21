@@ -2,7 +2,7 @@
 id: gateron-magnetic-green-dragon-he
 name: Magnetic Green Dragon HE
 vendor: Gateron
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

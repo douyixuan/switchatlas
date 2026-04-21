@@ -2,7 +2,7 @@
 id: gateron-magnetic-jade-gaming-he
 name: Magnetic Jade Gaming HE
 vendor: Gateron
-type: Unknown
+type: Clicky
 force:
   actuation: 0
   bottom_out: 0

@@ -1,0 +1,84 @@
+{
+  "generated": "2026-04-21T15:28:55.929Z",
+  "mode": "dry-run",
+  "total": 499,
+  "summary": {
+    "Linear": 351,
+    "Tactile": 137,
+    "Clicky": 11,
+    "Unknown": 0,
+    "review": 25
+  },
+  "byVendor": {
+    "Akko": {
+      "Linear": 40,
+      "Tactile": 16,
+      "Clicky": 0,
+      "Unknown": 0,
+      "total": 56
+    },
+    "Cherry": {
+      "Linear": 52,
+      "Tactile": 18,
+      "Clicky": 0,
+      "Unknown": 0,
+      "total": 70
+    },
+    "Durock": {
+      "Linear": 5,
+      "Tactile": 3,
+      "Clicky": 0,
+      "Unknown": 0,
+      "total": 8
+    },
+    "Gateron": {
+      "Linear": 70,
+      "Tactile": 25,
+      "Clicky": 5,
+      "Unknown": 0,
+      "total": 100
+    },
+    "JWK": {
+      "Linear": 11,
+      "Tactile": 0,
+      "Clicky": 1,
+      "Unknown": 0,
+      "total": 12
+    },
+    "Kailh": {
+      "Linear": 62,
+      "Tactile": 27,
+      "Clicky": 4,
+      "Unknown": 0,
+      "total": 93
+    },
+    "NovelKeys": {
+      "Linear": 12,
+      "Tactile": 2,
+      "Clicky": 0,
+      "Unknown": 0,
+      "total": 14
+    },
+    "Outemu": {
+      "Linear": 30,
+      "Tactile": 21,
+      "Clicky": 1,
+      "Unknown": 0,
+      "total": 52
+    },
+    "TTC": {
+      "Linear": 69,
+      "Tactile": 22,
+      "Clicky": 0,
+      "Unknown": 0,
+      "total": 91
+    },
+    "Zeal": {
+      "Linear": 0,
+      "Tactile": 3,
+      "Clicky": 0,
+      "Unknown": 0,
+      "total": 3
+    }
+  }
+}

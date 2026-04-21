@@ -2,7 +2,7 @@
 id: kailh-choc-low-profile-burnt-orange
 name: Choc Low Profile Burnt Orange
 vendor: Kailh
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Choc Low Profile Burnt Orange

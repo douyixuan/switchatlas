@@ -2,7 +2,7 @@
 id: akko-mirror
 name: Mirror
 vendor: Akko
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

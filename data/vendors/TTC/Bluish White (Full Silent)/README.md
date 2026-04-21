@@ -2,7 +2,7 @@
 id: ttc-bluish-white-full-silent-
 name: Bluish White (Full Silent)
 vendor: TTC
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0
@@ -25,6 +25,7 @@ sources:
         https://res.cloudinary.com/milktooth/image/upload/v1708479989/switch-photos/Bluish%20White/Bluish_White_4_lft8ke.jpg
       sourceUrl: 'https://milktooth.com/products/bluish-white'
       fetched: '2026-04-18'
+sound: Silent
 ---
 
 # Bluish White (Full Silent)

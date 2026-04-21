@@ -2,7 +2,7 @@
 id: outemu-tom
 name: Tom
 vendor: Outemu
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

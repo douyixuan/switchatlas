@@ -2,7 +2,7 @@
 id: outemu-ocean-silent-linear
 name: Ocean Silent Linear
 vendor: Outemu
-type: Unknown
+type: Clicky
 force:
   actuation: 0
   bottom_out: 0
@@ -25,6 +25,7 @@ sources:
         https://res.cloudinary.com/milktooth/image/upload/v1709331939/switch-photos/Silent%20Ocean/Silent_Ocean_1_fenshm.jpg
       sourceUrl: 'https://milktooth.com/products/outemu-silent-ocean'
       fetched: '2026-04-18'
+sound: Silent
 ---
 
 # Ocean Silent Linear

@@ -2,7 +2,7 @@
 id: gateron-genty-silent-he
 name: Genty Silent HE
 vendor: Gateron
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -25,6 +25,7 @@ sources:
         https://res.cloudinary.com/milktooth/image/upload/v1734737177/switch-photos/Genty/Genty_1_ylxhzq.jpg
       sourceUrl: 'https://milktooth.com/products/genty'
       fetched: '2026-04-18'
+sound: Silent
 ---
 
 # Genty Silent HE

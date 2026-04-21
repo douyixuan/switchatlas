@@ -2,7 +2,7 @@
 id: kailh-bcp-linear
 name: BCP Linear
 vendor: Kailh
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

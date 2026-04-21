@@ -2,7 +2,7 @@
 id: gateron-black-ink-v2-pro
 name: Black Ink V2 Pro
 vendor: Gateron
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Black Ink V2 Pro

@@ -2,7 +2,7 @@
 id: akko-cilantro-prototype-dark-stem-
 name: Cilantro Prototype (Dark Stem)
 vendor: Akko
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Cilantro Prototype (Dark Stem)

@@ -2,7 +2,7 @@
 id: ttc-neptune
 name: Neptune
 vendor: TTC
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

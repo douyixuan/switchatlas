@@ -2,7 +2,7 @@
 id: outemu-milk-peach
 name: Milk Peach
 vendor: Outemu
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

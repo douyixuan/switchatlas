@@ -2,7 +2,7 @@
 id: akko-v3-cream-blue-pro
 name: V3 Cream Blue Pro
 vendor: Akko
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

@@ -2,7 +2,7 @@
 id: cherry-mx-brown-3-pin-
 name: MX Brown (3 Pin)
 vendor: Cherry
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

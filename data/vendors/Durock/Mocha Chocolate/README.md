@@ -2,7 +2,7 @@
 id: durock-mocha-chocolate
 name: Mocha Chocolate
 vendor: Durock
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

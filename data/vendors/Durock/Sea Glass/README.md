@@ -2,7 +2,7 @@
 id: durock-sea-glass
 name: Sea Glass
 vendor: Durock
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

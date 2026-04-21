@@ -2,7 +2,7 @@
 id: durock-black-lotus-63-5g-
 name: Black Lotus (63.5g)
 vendor: Durock
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Black Lotus (63.5g)

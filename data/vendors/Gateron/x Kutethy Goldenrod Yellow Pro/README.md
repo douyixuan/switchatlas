@@ -2,7 +2,7 @@
 id: gateron-x-kutethy-goldenrod-yellow-pro
 name: x Kutethy Goldenrod Yellow Pro
 vendor: Gateron
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # x Kutethy Goldenrod Yellow Pro

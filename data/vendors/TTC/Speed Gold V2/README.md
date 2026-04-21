@@ -2,7 +2,7 @@
 id: ttc-speed-gold-v2
 name: Speed Gold V2
 vendor: TTC
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

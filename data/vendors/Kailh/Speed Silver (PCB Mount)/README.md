@@ -2,7 +2,7 @@
 id: kailh-speed-silver-pcb-mount-
 name: Speed Silver (PCB Mount)
 vendor: Kailh
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Speed Silver (PCB Mount)

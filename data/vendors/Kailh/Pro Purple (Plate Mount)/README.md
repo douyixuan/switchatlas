@@ -2,7 +2,7 @@
 id: kailh-pro-purple-plate-mount-
 name: Pro Purple (Plate Mount)
 vendor: Kailh
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Pro Purple (Plate Mount)

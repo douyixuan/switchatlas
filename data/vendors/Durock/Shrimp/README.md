@@ -2,7 +2,7 @@
 id: durock-shrimp
 name: Shrimp
 vendor: Durock
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0
@@ -19,6 +19,7 @@ sources:
         https://cdn.shopify.com/s/files/1/0646/8249/2117/files/1_7eb8f7f7-848b-415f-a11d-4005cdb28606.png?v=1716103632&width=1600
       sourceUrl: 'https://lumekeebs.com/products/durock-shrimp-silent-tactile-switch'
       fetched: '2026-04-18'
+sound: Silent
 ---
 
 # Shrimp

@@ -2,7 +2,7 @@
 id: gateron-silent-red-2-0
 name: Silent Red 2.0
 vendor: Gateron
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,8 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
+sound: Silent
 ---
 
 # Silent Red 2.0

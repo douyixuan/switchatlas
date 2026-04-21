@@ -2,7 +2,7 @@
 id: ttc-gold-brown-pro
 name: Gold Brown Pro
 vendor: TTC
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

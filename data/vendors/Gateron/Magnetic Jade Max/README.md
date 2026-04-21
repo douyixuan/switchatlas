@@ -2,7 +2,7 @@
 id: gateron-magnetic-jade-max
 name: Magnetic Jade Max
 vendor: Gateron
-type: Unknown
+type: Clicky
 force:
   actuation: 0
   bottom_out: 0

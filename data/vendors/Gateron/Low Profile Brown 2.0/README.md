@@ -2,7 +2,7 @@
 id: gateron-low-profile-brown-2-0
 name: Low Profile Brown 2.0
 vendor: Gateron
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Low Profile Brown 2.0

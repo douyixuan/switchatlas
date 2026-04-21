@@ -2,7 +2,7 @@
 id: cherry-mx-blossom
 name: MX Blossom
 vendor: Cherry
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

@@ -2,7 +2,7 @@
 id: cherry-mx-rgb-black-3-pin-
 name: MX RGB Black (3 Pin)
 vendor: Cherry
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # MX RGB Black (3 Pin)

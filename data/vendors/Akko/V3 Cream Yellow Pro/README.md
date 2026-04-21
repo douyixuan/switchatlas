@@ -2,7 +2,7 @@
 id: akko-v3-cream-yellow-pro
 name: V3 Cream Yellow Pro
 vendor: Akko
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

@@ -2,7 +2,7 @@
 id: ttc-venus
 name: Venus
 vendor: TTC
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

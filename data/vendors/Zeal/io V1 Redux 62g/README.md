@@ -2,7 +2,7 @@
 id: zealio-v1-redux-62g
 name: io V1 Redux 62g
 vendor: Zeal
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # io V1 Redux 62g

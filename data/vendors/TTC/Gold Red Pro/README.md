@@ -2,7 +2,7 @@
 id: ttc-gold-red-pro
 name: Gold Red Pro
 vendor: TTC
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

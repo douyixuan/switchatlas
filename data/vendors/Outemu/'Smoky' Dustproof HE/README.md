@@ -1,4 +1,7 @@
 ---
+type: Tactile
+---
+---
 id: outemu-smoky-dustproof-he
 name: 'Smoky' Dustproof HE
 vendor: Outemu

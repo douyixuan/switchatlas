@@ -2,7 +2,7 @@
 id: cherry-mx-honey
 name: MX Honey
 vendor: Cherry
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

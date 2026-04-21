@@ -2,7 +2,7 @@
 id: gateron-silent-ink-v2
 name: Silent Ink V2
 vendor: Gateron
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -19,6 +19,7 @@ sources:
         https://cdn.shopify.com/s/files/1/0275/3649/0561/products/gateron-ink-switches-v2-550646.jpg?v=1635297021&width=1600
       sourceUrl: 'https://divinikey.com/products/gateron-ink-v2-switches'
       fetched: '2026-04-18'
+sound: Silent
 ---
 
 # Silent Ink V2

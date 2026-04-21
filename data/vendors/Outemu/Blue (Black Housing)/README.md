@@ -2,7 +2,7 @@
 id: outemu-blue-black-housing-
 name: Blue (Black Housing)
 vendor: Outemu
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

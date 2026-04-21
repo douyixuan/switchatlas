@@ -2,7 +2,7 @@
 id: cherry-mx-falcon
 name: MX Falcon
 vendor: Cherry
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

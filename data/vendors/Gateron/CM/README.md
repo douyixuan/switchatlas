@@ -2,7 +2,7 @@
 id: gateron-cm
 name: CM
 vendor: Gateron
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

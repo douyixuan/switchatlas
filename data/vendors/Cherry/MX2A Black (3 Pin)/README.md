@@ -2,7 +2,7 @@
 id: cherry-mx2a-black-3-pin-
 name: MX2A Black (3 Pin)
 vendor: Cherry
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

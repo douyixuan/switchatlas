@@ -2,7 +2,7 @@
 id: ttc-tiger-rgb
 name: Tiger RGB
 vendor: TTC
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Tiger RGB

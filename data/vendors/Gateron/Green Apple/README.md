@@ -2,7 +2,7 @@
 id: gateron-green-apple
 name: Green Apple
 vendor: Gateron
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

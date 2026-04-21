@@ -2,7 +2,7 @@
 id: kailh-box-v2-white
 name: Box V2 White
 vendor: Kailh
-type: Unknown
+type: Clicky
 force:
   actuation: 0
   bottom_out: 0

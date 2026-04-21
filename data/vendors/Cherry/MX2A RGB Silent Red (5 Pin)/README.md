@@ -2,7 +2,7 @@
 id: cherry-mx2a-rgb-silent-red-5-pin-
 name: MX2A RGB Silent Red (5 Pin)
 vendor: Cherry
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,8 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
+sound: Silent
 ---
 
 # MX2A RGB Silent Red (5 Pin)

@@ -2,7 +2,7 @@
 id: gateron-azure-dragon-v4
 name: Azure Dragon V4
 vendor: Gateron
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0

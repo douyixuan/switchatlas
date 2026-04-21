@@ -2,7 +2,7 @@
 id: durock-mocha-silk
 name: Mocha Silk
 vendor: Durock
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

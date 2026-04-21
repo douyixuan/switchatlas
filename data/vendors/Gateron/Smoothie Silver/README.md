@@ -2,7 +2,7 @@
 id: gateron-smoothie-silver
 name: Smoothie Silver
 vendor: Gateron
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

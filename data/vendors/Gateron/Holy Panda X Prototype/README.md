@@ -2,7 +2,7 @@
 id: gateron-holy-panda-x-prototype
 name: Holy Panda X Prototype
 vendor: Gateron
-type: Unknown
+type: Tactile
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # Holy Panda X Prototype

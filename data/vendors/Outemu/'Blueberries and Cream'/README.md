@@ -1,8 +1,8 @@
 ---
 id: outemu-blueberries-and-cream-
-name: 'Blueberries and Cream'
+name: Blueberries and Cream
 vendor: Outemu
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0
@@ -10,7 +10,7 @@ travel:
   actuation: 0
   total: 0
 source_csv: force-curve.csv
-images:
+images: null
 ---
 
 # 'Blueberries and Cream'

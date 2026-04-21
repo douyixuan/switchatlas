@@ -2,7 +2,7 @@
 id: gateron-g-pro-3-0-yellow
 name: G Pro 3.0 Yellow
 vendor: Gateron
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

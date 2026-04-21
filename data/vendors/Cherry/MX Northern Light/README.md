@@ -2,7 +2,7 @@
 id: cherry-mx-northern-light
 name: MX Northern Light
 vendor: Cherry
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

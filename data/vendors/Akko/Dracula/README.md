@@ -2,7 +2,7 @@
 id: akko-dracula
 name: Dracula
 vendor: Akko
-type: Unknown
+type: Linear
 force:
   actuation: 0
   bottom_out: 0

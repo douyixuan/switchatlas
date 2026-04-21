@@ -9,7 +9,9 @@
     "start": "next start",
     "test": "node --test scripts/crawl_images/__tests__/*.test.js",
     "crawl:images": "node scripts/crawl_images/run.js",
-    "crawl:images:dry": "node scripts/crawl_images/run.js --dry-run"
+    "crawl:images:dry": "node scripts/crawl_images/run.js --dry-run",
+    "classify:metadata": "node scripts/classify_switches/run.js --apply",
+    "classify:metadata:dry": "node scripts/classify_switches/run.js --dry-run"
   },
   "keywords": [],
   "author": "",
