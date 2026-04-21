@@ -17,14 +17,28 @@ interface GallerySwitch {
   images: string[]
 }
 
+const SWITCH_TYPES = ['All', 'Linear', 'Tactile', 'Clicky'] as const
+type TypeFilter = (typeof SWITCH_TYPES)[number]
+
 export function Gallery({ switches }: { switches: GallerySwitch[] }) {
   const router = useRouter()
   const t = useT()
   const [current, setCurrent] = useState(0)
   const [imageIdx, setImageIdx] = useState(0)
   const [transitioning, setTransitioning] = useState(false)
+  const [activeType, setActiveType] = useState<TypeFilter>('All')
   const touchRef = useRef<{ startX: number; startY: number } | null>(null)
   const hasInitialized = useRef(false)
+
+  const filteredSwitches = activeType === 'All'
+    ? switches
+    : switches.filter((sw) => sw.type === activeType)
+
+  const handleTypeChange = (type: TypeFilter) => {
+    setActiveType(type)
+    setCurrent(0)
+    setImageIdx(0)
+  }
 
   useEffect(() => {
     if (hasInitialized.current) return
@@ -44,20 +58,20 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
       setTimeout(() => {
         setCurrent((prev) => {
           const next = prev + dir
-          if (next < 0) return switches.length - 1
-          if (next >= switches.length) return 0
+          if (next < 0) return filteredSwitches.length - 1
+          if (next >= filteredSwitches.length) return 0
           return next
         })
         setImageIdx(0)
         setTransitioning(false)
       }, 180)
     },
-    [transitioning, switches.length]
+    [transitioning, filteredSwitches.length]
   )
 
   const navigateImage = useCallback(
     (dir: 1 | -1) => {
-      const sw = switches[current]
+      const sw = filteredSwitches[current]
       if (!sw || sw.images.length <= 1) return
       setImageIdx((prev) => {
         const next = prev + dir
@@ -66,7 +80,7 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
         return next
       })
     },
-    [current, switches]
+    [current, filteredSwitches]
   )
 
   useEffect(() => {
@@ -100,11 +114,11 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
     }
   }
 
-  const sw = switches[current]
+  const sw = filteredSwitches[current]
   if (!sw) return null
 
-  const prevIdx = current === 0 ? switches.length - 1 : current - 1
-  const nextIdx = current === switches.length - 1 ? 0 : current + 1
+  const prevIdx = current === 0 ? filteredSwitches.length - 1 : current - 1
+  const nextIdx = current === filteredSwitches.length - 1 ? 0 : current + 1
   const displayImage = sw.images[imageIdx] || sw.image
   const hasMultipleImages = sw.images.length > 1
 
@@ -123,8 +137,25 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
         >
           {t('gallery.exit')}
         </button>
+
+        <div className="flex items-center gap-1.5">
+          {SWITCH_TYPES.map((type) => (
+            <button
+              key={type}
+              onClick={() => handleTypeChange(type)}
+              className={`rounded-pill px-3 py-1 font-mono text-mono font-semibold uppercase tracking-wider transition-colors ${
+                activeType === type
+                  ? 'bg-brand-light text-brand-deep'
+                  : 'text-white/40 hover:text-white/70'
+              }`}
+            >
+              {t(`type.${type}`)}
+            </button>
+          ))}
+        </div>
+
         <span className="font-mono text-mono uppercase tracking-wider text-white/40">
-          {current + 1} / {switches.length}
+          {current + 1} / {filteredSwitches.length}
         </span>
       </div>
 
@@ -215,8 +246,8 @@ export function Gallery({ switches }: { switches: GallerySwitch[] }) {
       </div>
 
       <div className="hidden">
-        <Image src={switches[prevIdx].image} alt="" width={1} height={1} priority />
-        <Image src={switches[nextIdx].image} alt="" width={1} height={1} priority />
+        <Image src={filteredSwitches[prevIdx].image} alt="" width={1} height={1} priority />
+        <Image src={filteredSwitches[nextIdx].image} alt="" width={1} height={1} priority />
       </div>
     </div>
   )

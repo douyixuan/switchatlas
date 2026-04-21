@@ -75,3 +75,56 @@ describe('getSwitchesByVendor filtering contract', () => {
     assert.deepEqual(vendorsWithImages, ['Akko'])
   })
 })
+
+describe('type filtering contract', () => {
+  // Verify the pure filtering logic that getSwitchesByVendor will use
+  // when a `type` option is provided.
+
+  type TypedSwitch = { name: string; type: string; image: string }
+  const DEFAULT_SVG = '/images/default-switch.svg'
+
+  const allSwitches: TypedSwitch[] = [
+    { name: 'Red', type: 'Linear', image: '/images/vendors/Cherry/red/switch-image.jpg' },
+    { name: 'Brown', type: 'Tactile', image: '/images/vendors/Cherry/brown/switch-image.jpg' },
+    { name: 'Blue', type: 'Clicky', image: '/images/vendors/Cherry/blue/switch-image.jpg' },
+    { name: 'Black', type: 'Linear', image: '/images/vendors/Cherry/black/switch-image.jpg' },
+    { name: 'Unknown', type: 'Unknown', image: '/images/vendors/Cherry/unknown/switch-image.jpg' },
+    { name: 'NoImg', type: 'Linear', image: DEFAULT_SVG },
+  ]
+
+  function hasRealImage(sw: TypedSwitch) { return !sw.image.endsWith(DEFAULT_SVG) }
+
+  function filterByType(switches: TypedSwitch[], type?: string) {
+    const withImages = switches.filter(hasRealImage)
+    if (!type || type === 'All') return withImages
+    return withImages.filter(sw => sw.type === type)
+  }
+
+  it('All (or undefined) returns all switches with images', () => {
+    assert.equal(filterByType(allSwitches).length, 5)
+    assert.equal(filterByType(allSwitches, 'All').length, 5)
+  })
+
+  it('Linear filters to only Linear switches with images', () => {
+    const result = filterByType(allSwitches, 'Linear')
+    assert.equal(result.length, 2)
+    assert.ok(result.every(s => s.type === 'Linear'))
+  })
+
+  it('Tactile filters to only Tactile switches', () => {
+    const result = filterByType(allSwitches, 'Tactile')
+    assert.equal(result.length, 1)
+    assert.equal(result[0].name, 'Brown')
+  })
+
+  it('Clicky filters to only Clicky switches', () => {
+    const result = filterByType(allSwitches, 'Clicky')
+    assert.equal(result.length, 1)
+    assert.equal(result[0].name, 'Blue')
+  })
+
+  it('imageless switches are excluded even when type matches', () => {
+    const result = filterByType(allSwitches, 'Linear')
+    assert.ok(result.every(s => !s.image.endsWith(DEFAULT_SVG)))
+  })
+})

@@ -24,6 +24,7 @@
   "spec.color": "Color",
   "spec.mount": "Mount",
 
+  "type.All": "All",
   "type.Linear": "Linear",
   "type.Tactile": "Tactile",
   "type.Clicky": "Clicky",

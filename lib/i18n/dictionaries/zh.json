@@ -24,6 +24,7 @@
   "spec.color": "颜色",
   "spec.mount": "安装方式",
 
+  "type.All": "全部",
   "type.Linear": "线性",
   "type.Tactile": "段落",
   "type.Clicky": "段落声响",

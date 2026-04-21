@@ -12,7 +12,7 @@ export default async function VendorPage({
 }) {
   const { vendor } = await params
   const decodedVendor = decodeURIComponent(vendor)
-  const switches = getSwitchesByVendor(decodedVendor, 12)
+  const switches = getSwitchesByVendor(decodedVendor)
 
   return <VendorContent decodedVendor={decodedVendor} switches={switches} />
 }
